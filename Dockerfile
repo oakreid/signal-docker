@@ -6,7 +6,7 @@ RUN wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > s
 RUN cat signal-desktop-keyring.gpg | tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 RUN echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | tee -a /etc/apt/sources.list.d/signal-xenial.list
 RUN apt-get update
-RUN apt-get install signal-desktop -y
+RUN apt-get install signal-desktop=6.18.1 -y
 RUN useradd signal -d /home/signal -m
 USER signal
 ENV HOME /home/signal
